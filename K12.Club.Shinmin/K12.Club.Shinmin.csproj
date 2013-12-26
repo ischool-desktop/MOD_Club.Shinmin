@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5881109-EEC9-4901-A675-FD135C5A80EF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>K12.Club.Shinmin</RootNamespace>
+    <AssemblyName>K12.Club.Shinmin</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=4.4.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\TFS2010-Git\Library\Aspose.Cells.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Aspose.Words, Version=4.4.1.0, Culture=neutral, PublicKeyToken=716fcc553a201e56">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\TFS2010-Git\Library\Aspose.Words.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Campus.Configuration">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\Campus.Configuration.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Campus.Report">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\Campus.Report.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Campus.Windows">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\Campus.Windows.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=9.5.0.1, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\TFS2010-Git\Library\DevComponents.DotNetBar2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Authentication">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.Authentication.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Data">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.DSAClient">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.DSAClient.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.DSAUtil">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.DSAUtil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.LogAgent">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.LogAgent.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Permission">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.Permission.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.Presentation">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.Presentation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FISCA.UDT">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.UDT.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IntelliSchool.DSA.ClientFramework">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\IntelliSchool.DSA.ClientFramework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="K12.Data">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\K12.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="K12.Presentation">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\K12.Presentation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.API.PlugIn">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\SmartSchool.API.PlugIn.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.Customization.PlugIn">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\SmartSchool.Customization.PlugIn.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SmartSchool.ErrorReporting">
+      <HintPath>..\..\..\..\TFS2010-Git\Library\SmartSchool.ErrorReporting.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClubAdminClub.cs" />
+    <Compile Include="ClubAdminStudent.cs" />
+    <Compile Include="ClubEvents.cs" />
+    <Compile Include="ClubExtendControls\CadresItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClubExtendControls\CadresItem.Designer.cs">
+      <DependentUpon>CadresItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClubExtendControls\ClubDetailItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClubExtendControls\ClubDetailItem.Designer.cs">
+      <DependentUpon>ClubDetailItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClubExtendControls\ClubImageItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClubExtendControls\ClubImageItem.Designer.cs">
+      <DependentUpon>ClubImageItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClubExtendControls\ClubRestrictItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClubExtendControls\ClubRestrictItem.Designer.cs">
+      <DependentUpon>ClubRestrictItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClubExtendControls\ClubStudent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClubExtendControls\ClubStudent.Designer.cs">
+      <DependentUpon>ClubStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClubExtendControls\ScJoinMag.cs" />
+    <Compile Include="ClubExtendControls\StudentResultItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClubExtendControls\StudentResultItem.Designer.cs">
+      <DependentUpon>StudentResultItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailContentBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DetailContentBase.designer.cs">
+      <DependentUpon>DetailContentBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExport\CLUB\ClubCadresObj.cs" />
+    <Compile Include="ImportExport\CLUB\ClubCadResult.cs" />
+    <Compile Include="ImportExport\LOSE\x_ExportClubResult.cs" />
+    <Compile Include="ImportExport\ExportStudentClubResult.cs" />
+    <Compile Include="ImportExport\ExportStudentV2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExport\ExportStudentV2.designer.cs">
+      <DependentUpon>ExportStudentV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExport\CLUB\SpecialResult.cs" />
+    <Compile Include="ImportExport\CLUB\ExportStudentV2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExport\CLUB\ExportStudentV2.designer.cs">
+      <DependentUpon>ExportStudentV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportExport\LOSE\x_SpecialResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExport\LOSE\x_SpecialResult.Designer.cs">
+      <DependentUpon>x_SpecialResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\班級社團成績單\ClassClubTraMag.cs" />
+    <Compile Include="Report\班級社團成績單\ClassClubTranscript.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\班級社團成績單\ClassClubTranscript.Designer.cs">
+      <DependentUpon>ClassClubTranscript.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\班級社團成績單\ClassClubTraObj.cs" />
+    <Compile Include="Report\班級社團選社確認單\ElectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\班級社團選社確認單\ElectionForm.Designer.cs">
+      <DependentUpon>ElectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\班級社團選社確認單\ElectionSocialConfirmation.cs" />
+    <Compile Include="Report\班級社團選社確認單\StudentSCjoinObj.cs" />
+    <Compile Include="Report\社團幹部學期獎狀\SpeCadreFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\社團幹部學期獎狀\SpeCadreFrom.Designer.cs">
+      <DependentUpon>SpeCadreFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\社團幹部證明單\CadreProveReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\社團幹部證明單\CadreProveReport.Designer.cs">
+      <DependentUpon>CadreProveReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\社團成績單\ClubTraMag.cs" />
+    <Compile Include="Report\社團成績單\ClubTranscript.cs" />
+    <Compile Include="Report\社團成績單\ClubTraObj.cs" />
+    <Compile Include="Report\社團概況表\CLUBFactsTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\社團概況表\CLUBFactsTable.Designer.cs">
+      <DependentUpon>CLUBFactsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\社團概況表\FactsObj_big.cs" />
+    <Compile Include="Report\社團概況表\TeacherCrk.cs" />
+    <Compile Include="Report\社團點名單\ClubPointList.cs" />
+    <Compile Include="Report\社團點名單\SCJoinDataLoad.cs" />
+    <Compile Include="Ribbon\CopyClubRecord.cs" />
+    <Compile Include="Ribbon\成績輸入\Log_Result.cs" />
+    <Compile Include="Ribbon\重覆選社檢查\RepeatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ribbon\重覆選社檢查\RepeatForm.Designer.cs">
+      <DependentUpon>RepeatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\重覆選社檢查\StudRepeatObj.cs" />
+    <Compile Include="Ribbon\ResultsInputDateTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ribbon\ResultsInputDateTime.Designer.cs">
+      <DependentUpon>ResultsInputDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\成績輸入\ClubResultsInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ribbon\成績輸入\ClubResultsInput.Designer.cs">
+      <DependentUpon>ClubResultsInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\成績輸入\SCJoinRow.cs" />
+    <Compile Include="Ribbon\學期結算\ClearingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ribbon\學期結算\ClearingForm.Designer.cs">
+      <DependentUpon>ClearingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tools\CompleteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tools\CompleteForm.designer.cs">
+      <DependentUpon>CompleteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tools\DataGridViewExport.cs" />
+    <Compile Include="tools\GetAllData.cs" />
+    <Compile Include="tools\StudentObj.cs" />
+    <Compile Include="tools\DataGridViewColorBallTextCell.cs" />
+    <Compile Include="ExtracurricularActivitiesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExtracurricularActivitiesView.designer.cs">
+      <DependentUpon>ExtracurricularActivitiesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tools\ListViewEX.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Permissions.cs" />
+    <Compile Include="tools\PhotoConvert.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ClubAdmin.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="tools\ResizeX1.cs" />
+    <Compile Include="Ribbon\AddressNameList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ribbon\AddressNameList.designer.cs">
+      <DependentUpon>AddressNameList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\CheckStudentIsNotInClub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ribbon\CheckStudentIsNotInClub.Designer.cs">
+      <DependentUpon>CheckStudentIsNotInClub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\GradingProjectConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ribbon\GradingProjectConfig.Designer.cs">
+      <DependentUpon>GradingProjectConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tools\DataRow_clsRecord.cs" />
+    <Compile Include="Ribbon\CopyClub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ribbon\CopyClub.Designer.cs">
+      <DependentUpon>CopyClub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\OpenClubJoinDateTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ribbon\OpenClubJoinDateTime.designer.cs">
+      <DependentUpon>OpenClubJoinDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\調整社團學生\GetSplitOBJ.cs" />
+    <Compile Include="Ribbon\NewAddClub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ribbon\NewAddClub.Designer.cs">
+      <DependentUpon>NewAddClub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ribbon\調整社團學生\StudentJoinRow.cs" />
+    <Compile Include="Ribbon\調整社團學生\SplitClasses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ribbon\調整社團學生\SplitClasses.Designer.cs">
+      <DependentUpon>SplitClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tools\SortClassIndex.cs" />
+    <Compile Include="tools\StudentSortObj.cs" />
+    <Compile Include="tools\TeacherObj.cs" />
+    <Compile Include="tools\Tn.cs" />
+    <Compile Include="tools\tool.cs" />
+    <Compile Include="tools\成績取得器.cs" />
+    <Compile Include="tools\社團幹部obj.cs" />
+    <Compile Include="UDT\CadresRecord.cs" />
+    <Compile Include="UDT\CLUBRecord.cs" />
+    <Compile Include="UDT\ResultScoreRecord.cs" />
+    <Compile Include="UDT\SCJoin.cs" />
+    <Compile Include="UDT\DTClub.cs" />
+    <Compile Include="UDT\DTScore.cs" />
+    <Compile Include="UDT\WeightProportion.cs" />
+    <Compile Include="tools\UDT_S.cs" />
+    <Compile Include="UpdateHelper.cs" />
+    <Compile Include="ViewJPG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewJPG.designer.cs">
+      <DependentUpon>ViewJPG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WebPackage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ClubExtendControls\CadresItem.resx">
+      <DependentUpon>CadresItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClubExtendControls\ClubDetailItem.resx">
+      <DependentUpon>ClubDetailItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClubExtendControls\ClubImageItem.resx">
+      <DependentUpon>ClubImageItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClubExtendControls\ClubRestrictItem.resx">
+      <DependentUpon>ClubRestrictItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClubExtendControls\ClubStudent.resx">
+      <DependentUpon>ClubStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClubExtendControls\StudentResultItem.resx">
+      <DependentUpon>StudentResultItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtracurricularActivitiesView.resx">
+      <DependentUpon>ExtracurricularActivitiesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExport\ExportStudentV2.resx">
+      <DependentUpon>ExportStudentV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExport\CLUB\ExportStudentV2.resx">
+      <DependentUpon>ExportStudentV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportExport\LOSE\x_SpecialResult.resx">
+      <DependentUpon>x_SpecialResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\班級社團成績單\ClassClubTranscript.resx">
+      <DependentUpon>ClassClubTranscript.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\班級社團選社確認單\ElectionForm.resx">
+      <DependentUpon>ElectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\社團幹部學期獎狀\SpeCadreFrom.resx">
+      <DependentUpon>SpeCadreFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\社團幹部證明單\CadreProveReport.resx">
+      <DependentUpon>CadreProveReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\社團概況表\CLUBFactsTable.resx">
+      <DependentUpon>CLUBFactsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ribbon\AddressNameList.resx">
+      <DependentUpon>AddressNameList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ribbon\CheckStudentIsNotInClub.resx">
+      <DependentUpon>CheckStudentIsNotInClub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ribbon\重覆選社檢查\RepeatForm.resx">
+      <DependentUpon>RepeatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ribbon\CopyClub.resx">
+      <DependentUpon>CopyClub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ribbon\OpenClubJoinDateTime.resx">
+      <DependentUpon>OpenClubJoinDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ribbon\GradingProjectConfig.resx">
+      <DependentUpon>GradingProjectConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ribbon\NewAddClub.resx">
+      <DependentUpon>NewAddClub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ribbon\學期結算\ClearingForm.resx">
+      <DependentUpon>ClearingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ribbon\ResultsInputDateTime.resx">
+      <DependentUpon>ResultsInputDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ribbon\成績輸入\ClubResultsInput.resx">
+      <DependentUpon>ClubResultsInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ribbon\調整社團學生\SplitClasses.resx">
+      <DependentUpon>SplitClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tools\CompleteForm.resx">
+      <DependentUpon>CompleteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewJPG.resx">
+      <DependentUpon>ViewJPG.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\health_and_leisure_add_64.png" />
+    <None Include="Resources\班級學生選社_範本.doc" />
+    <None Include="Resources\班級社團不及格確認單_範本.xls" />
+    <None Include="Resources\班級社團成績單_範本.xls" />
+    <None Include="Resources\社團幹部證明單.doc" />
+    <None Include="Resources\社團成績單_範本.xls" />
+    <None Include="Resources\社團概況表_範本.doc" />
+    <None Include="Resources\社團點名單_範本.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\architecture_zoom_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\time_frame_refresh_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotate_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\defImages_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group_help_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layers_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barchart_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\marker_fav_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Export.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Import.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\health_and_leisure_remove_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meeting_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fromTestJ.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brand_write_64.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
