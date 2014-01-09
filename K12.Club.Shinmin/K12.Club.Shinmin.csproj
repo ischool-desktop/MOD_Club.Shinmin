@@ -37,24 +37,24 @@
   <ItemGroup>
     <Reference Include="Aspose.Cells, Version=4.4.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\TFS2010-Git\Library\Aspose.Cells.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\Aspose.Cells.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Aspose.Words, Version=4.4.1.0, Culture=neutral, PublicKeyToken=716fcc553a201e56">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\TFS2010-Git\Library\Aspose.Words.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\Aspose.Words.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Campus.Configuration">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\Campus.Configuration.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\Campus.Configuration.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Campus.Report">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\Campus.Report.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\Campus.Report.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Campus.Windows">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\Campus.Windows.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\Campus.Windows.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="DevComponents.DotNetBar2, Version=9.5.0.1, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
@@ -63,63 +63,63 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="FISCA">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\FISCA.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.Authentication">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.Authentication.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\FISCA.Authentication.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.Data">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.Data.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\FISCA.Data.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.DSAClient">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.DSAClient.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\FISCA.DSAClient.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.DSAUtil">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.DSAUtil.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\FISCA.DSAUtil.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.LogAgent">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.LogAgent.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\FISCA.LogAgent.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.Permission">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.Permission.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\FISCA.Permission.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.Presentation">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.Presentation.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\FISCA.Presentation.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="FISCA.UDT">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\FISCA.UDT.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\FISCA.UDT.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="IntelliSchool.DSA.ClientFramework">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\IntelliSchool.DSA.ClientFramework.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\IntelliSchool.DSA.ClientFramework.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="K12.Data">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\K12.Data.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\K12.Data.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="K12.Presentation">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\K12.Presentation.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\K12.Presentation.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SmartSchool.API.PlugIn">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\SmartSchool.API.PlugIn.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\SmartSchool.API.PlugIn.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SmartSchool.Customization.PlugIn">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\SmartSchool.Customization.PlugIn.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\SmartSchool.Customization.PlugIn.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="SmartSchool.ErrorReporting">
-      <HintPath>..\..\..\..\TFS2010-Git\Library\SmartSchool.ErrorReporting.dll</HintPath>
+      <HintPath>..\..\..\Library\Library\SmartSchool.ErrorReporting.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
