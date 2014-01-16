@@ -396,12 +396,15 @@ namespace K12.Club.Shinmin.CLUB
             {
                 List<string> idlist = new List<string>();
                 #region 取得選取學生編號
-                List<CLUBRecord> GraduateList = _AccessHelper.Select<CLUBRecord>(UDT_S.PopOneCondition("UID", ClubAdmin.Instance.SelectedSource));//取得UDT清單
-                foreach (CLUBRecord stu in GraduateList)
+                if (ClubAdmin.Instance.SelectedSource.Count > 0)
                 {
-                    if (!idlist.Contains(stu.UID))
+                    List<CLUBRecord> GraduateList = _AccessHelper.Select<CLUBRecord>(UDT_S.PopOneCondition("UID", ClubAdmin.Instance.SelectedSource));//取得UDT清單
+                    foreach (CLUBRecord stu in GraduateList)
                     {
-                        idlist.Add(stu.UID);
+                        if (!idlist.Contains(stu.UID))
+                        {
+                            idlist.Add(stu.UID);
+                        }
                     }
                 }
                 #endregion

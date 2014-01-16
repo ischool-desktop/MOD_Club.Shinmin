@@ -100,6 +100,7 @@
             this.cbTeacher1.Size = new System.Drawing.Size(188, 25);
             this.cbTeacher1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbTeacher1.TabIndex = 10;
+            this.cbTeacher1.Leave += new System.EventHandler(this.cbTeacher1_Leave);
             // 
             // lbClubName
             // 
@@ -252,6 +253,7 @@
             this.cbTeacher2.Size = new System.Drawing.Size(188, 25);
             this.cbTeacher2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbTeacher2.TabIndex = 12;
+            this.cbTeacher2.Leave += new System.EventHandler(this.cbTeacher2_Leave);
             // 
             // lbTeacher3
             // 
@@ -280,6 +282,7 @@
             this.cbTeacher3.Size = new System.Drawing.Size(188, 25);
             this.cbTeacher3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbTeacher3.TabIndex = 14;
+            this.cbTeacher3.Leave += new System.EventHandler(this.cbTeacher3_Leave);
             // 
             // labelX1
             // 

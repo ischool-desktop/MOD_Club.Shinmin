@@ -60,6 +60,8 @@ namespace K12.Club.Shinmin
 
         Dictionary<string, TeacherObj> TeacherDic = new Dictionary<string, TeacherObj>();
 
+        Dictionary<string, TeacherObj> TeacherNameDic = new Dictionary<string, TeacherObj>();
+
         //權限
         internal static FeatureAce UserPermission;
 
@@ -168,18 +170,24 @@ namespace K12.Club.Shinmin
             //取得老師資料
             TeacherList.Clear();
             TeacherDic.Clear();
+            TeacherNameDic.Clear();
             dt = _QueryHelper.Select("select teacher.id,teacher.teacher_name,teacher.nickname from teacher ORDER by teacher_name");
             foreach (DataRow row in dt.Rows)
             {
                 TeacherObj obj = new TeacherObj();
                 obj.TeacherID = "" + row[0];
-                obj.TeacherName = "" + row[1];
-                obj.TeacherNickName = "" + row[2];
+                obj.TeacherName = ("" + row[1]).Trim();
+                obj.TeacherNickName = ("" + row[2]).Trim();
                 TeacherList.Add(obj);
 
                 if (!TeacherDic.ContainsKey(obj.TeacherID))
                 {
                     TeacherDic.Add(obj.TeacherID, obj);
+                }
+
+                if (!TeacherNameDic.ContainsKey(obj.TeacherFullName))
+                {
+                    TeacherNameDic.Add(obj.TeacherFullName, obj);
                 }
             }
 
@@ -235,7 +243,7 @@ namespace K12.Club.Shinmin
             cbTeacher1.Text = "";
             cbTeacher1.DisplayMember = "TeacherFullName";
             cbTeacher1.Items.AddRange(TeacherList.ToArray());
-            
+
             foreach (TeacherObj each in TeacherList)
             {
                 if (each.TeacherID == ClubPrimary.RefTeacherID)
@@ -274,7 +282,7 @@ namespace K12.Club.Shinmin
             }
 
             #endregion
-            
+
             #region 場地資料
 
             cbLocation.Items.Clear();
@@ -680,6 +688,39 @@ namespace K12.Club.Shinmin
 
             //判斷是否忙碌後,開始進行資料重置
             Changed();
+        }
+
+        private void cbTeacher1_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(cbTeacher1.Text))
+            {
+                if (TeacherNameDic.ContainsKey(cbTeacher1.Text))
+                {
+                    cbTeacher1.SelectedItem = TeacherNameDic[cbTeacher1.Text];
+                }
+            }
+        }
+
+        private void cbTeacher2_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(cbTeacher2.Text))
+            {
+                if (TeacherNameDic.ContainsKey(cbTeacher2.Text))
+                {
+                    cbTeacher2.SelectedItem = TeacherNameDic[cbTeacher2.Text];
+                }
+            }
+        }
+
+        private void cbTeacher3_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(cbTeacher3.Text))
+            {
+                if (TeacherNameDic.ContainsKey(cbTeacher3.Text))
+                {
+                    cbTeacher3.SelectedItem = TeacherNameDic[cbTeacher3.Text];
+                }
+            }
         }
     }
 }
