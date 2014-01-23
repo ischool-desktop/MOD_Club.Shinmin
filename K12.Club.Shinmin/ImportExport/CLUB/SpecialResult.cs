@@ -5,14 +5,13 @@ using System;
 using FISCA.UDT;
 using System.Text;
 using FISCA.LogAgent;
+using System.Data;
 
 namespace K12.Club.Shinmin.CLUB
 {
     class SpecialResult : SmartSchool.API.PlugIn.Export.Exporter
     {
-        AccessHelper helper = new AccessHelper();
-
-        Dictionary<string, StudentRecord> StudentDic = new Dictionary<string, StudentRecord>();
+        Dictionary<string, demoStudent> StudentDic = new Dictionary<string, demoStudent>();
 
         //建構子
         public SpecialResult()
@@ -34,17 +33,17 @@ namespace K12.Club.Shinmin.CLUB
                 List<string> SelectCLUBIDList = e.List;
 
                 //取得參與學生的社團學期成績
-                List<SCJoin> SCJoinList = helper.Select<SCJoin>("ref_club_id in ('" + string.Join("','", SelectCLUBIDList) + "')");
+                List<SCJoin> SCJoinList = tool._A.Select<SCJoin>("ref_club_id in ('" + string.Join("','", SelectCLUBIDList) + "')");
                 List<string> SCJoinIDList = new List<string>();
                 foreach (SCJoin each in SCJoinList)
                 {
-                    if (!SCJoinIDList.Contains(each.RefStudentID))
+                    if (!SCJoinIDList.Contains(each.UID))
                     {
                         SCJoinIDList.Add(each.UID);
                     }
                 }
 
-                List<ResultScoreRecord> ResultScoreList = helper.Select<ResultScoreRecord>("ref_scjoin_id in ('" + string.Join("','", SCJoinIDList) + "')");
+                List<ResultScoreRecord> ResultScoreList = tool._A.Select<ResultScoreRecord>("ref_scjoin_id in ('" + string.Join("','", SCJoinIDList) + "')");
 
                 List<string> StudentIDList = new List<string>();
 
@@ -61,31 +60,16 @@ namespace K12.Club.Shinmin.CLUB
                 #region 取得學生基本資料
 
                 StudentDic.Clear();
-                List<StudentRecord> StudentRecordList = Student.SelectByIDs(StudentIDList);
-                foreach (StudentRecord each in StudentRecordList)
+                if (StudentIDList.Count > 0)
                 {
-                    if (each.Status == StudentRecord.StudentStatus.一般 || each.Status == StudentRecord.StudentStatus.延修)
+                    DataTable dt = tool._Q.Select(string.Format("select student.id,student.seat_no,student.student_number,student.name,class.class_name,class.id as class_id,class.grade_year from student join class on student.ref_class_id=class.id where student.id in('{0}')", string.Join("','", StudentIDList)));
+                    foreach (DataRow each in dt.Rows)
                     {
-                        if (!StudentDic.ContainsKey(each.ID))
+                        demoStudent ds = new demoStudent(each);
+                        if (!StudentDic.ContainsKey(ds.ref_student_id))
                         {
-                            StudentDic.Add(each.ID, each);
+                            StudentDic.Add(ds.ref_student_id, ds);
                         }
-                    }
-                }
-
-                #endregion
-
-                #region 學期歷程
-
-                List<SemesterHistoryRecord> SemesterList = SemesterHistory.SelectByStudentIDs(StudentIDList);
-
-                //學生ID : SemesterHistoryRecord 
-                Dictionary<string, SemesterHistoryRecord> SemesterDic = new Dictionary<string, SemesterHistoryRecord>();
-                foreach (SemesterHistoryRecord each in SemesterList)
-                {
-                    if (!SemesterDic.ContainsKey(each.RefStudentID))
-                    {
-                        SemesterDic.Add(each.RefStudentID, each);
                     }
                 }
 
@@ -97,7 +81,7 @@ namespace K12.Club.Shinmin.CLUB
                 {
                     if (StudentDic.ContainsKey(Result.RefStudentID))
                     {
-                        StudentRecord sr = StudentDic[Result.RefStudentID];
+                        demoStudent sr = StudentDic[Result.RefStudentID];
 
                         #region 其它
 
@@ -113,14 +97,13 @@ namespace K12.Club.Shinmin.CLUB
                         string 科目級別 = "";
                         string 成績年級 = "";
 
-                        if (!string.IsNullOrEmpty(sr.RefClassID))
+                        if (!string.IsNullOrEmpty(sr.class_id))
                         {
-                            ClassRecord cr = sr.Class;
-
-                            if (cr.GradeYear.HasValue)
+                            int a;
+                            if (int.TryParse(sr.grade_year,out a))
                             {
-                                科目級別 = GetSchoolYearByGradeYear(cr.GradeYear.Value, Result.Semester);
-                                成績年級 = cr.GradeYear.Value.ToString();
+                                科目級別 = GetSchoolYearByGradeYear(a, Result.Semester);
+                                成績年級 = sr.grade_year;
                             }
 
                         }
@@ -138,11 +121,11 @@ namespace K12.Club.Shinmin.CLUB
                             {
                                 switch (field)
                                 {
-                                    case "學生系統編號": row.Add(field, sr.ID); break;
-                                    case "學號": row.Add(field, sr.StudentNumber); break;
-                                    case "班級": row.Add(field, string.IsNullOrEmpty(sr.RefClassID) ? "" : sr.Class.Name); break;
-                                    case "座號": row.Add(field, sr.SeatNo.HasValue ? sr.SeatNo.Value.ToString() : ""); break;
-                                    case "姓名": row.Add(field, sr.Name); break;
+                                    case "學生系統編號": row.Add(field, sr.ref_student_id); break;
+                                    case "學號": row.Add(field, sr.student_number); break;
+                                    case "班級": row.Add(field, sr.class_name); break;
+                                    case "座號": row.Add(field, sr.seat_no); break;
+                                    case "姓名": row.Add(field, sr.name); break;
 
                                     case "科目": row.Add(field, "聯課活動"); break;
                                     case "科目級別": row.Add(field, 科目級別); break;
@@ -174,14 +157,14 @@ namespace K12.Club.Shinmin.CLUB
 
             if (StudentDic.ContainsKey(rsr1.RefStudentID) && StudentDic.ContainsKey(rsr2.RefStudentID))
             {
-                StudentRecord sr1 = StudentDic[rsr1.RefStudentID];
-                StudentRecord sr2 = StudentDic[rsr2.RefStudentID];
+                demoStudent sr1 = StudentDic[rsr1.RefStudentID];
+                demoStudent sr2 = StudentDic[rsr2.RefStudentID];
 
-                rsr1SortString = string.IsNullOrEmpty(sr1.RefClassID) ? "000000" : sr1.Class.Name.PadLeft(6, '0');
-                rsr2SortString = string.IsNullOrEmpty(sr2.RefClassID) ? "000000" : sr2.Class.Name.PadLeft(6, '0');
+                rsr1SortString = string.IsNullOrEmpty(sr1.class_id) ? "000000" : sr1.class_name.PadLeft(6, '0');
+                rsr2SortString = string.IsNullOrEmpty(sr2.class_id) ? "000000" : sr2.class_name.PadLeft(6, '0');
 
-                rsr1SortString += sr1.SeatNo.HasValue ? sr1.SeatNo.Value.ToString().PadLeft(3, '0') : "000";
-                rsr2SortString += sr2.SeatNo.HasValue ? sr2.SeatNo.Value.ToString().PadLeft(3, '0') : "000";
+                rsr1SortString += !string.IsNullOrEmpty(sr1.seat_no) ? sr1.seat_no.ToString().PadLeft(3, '0') : "000";
+                rsr2SortString += !string.IsNullOrEmpty(sr2.seat_no) ? sr2.seat_no.ToString().PadLeft(3, '0') : "000";
 
             }
 
@@ -252,5 +235,27 @@ namespace K12.Club.Shinmin.CLUB
             list.Add("取得學分");
             return list;
         }
+    }
+
+    class demoStudent
+    {
+        public demoStudent(DataRow row)
+        {
+            ref_student_id = "" + row["id"];
+            seat_no = "" + row["seat_no"];
+            class_id = "" + row["class_id"];
+            class_name = "" + row["class_name"];
+            grade_year = "" + row["grade_year"];
+            name = "" + row["name"];
+            student_number = "" + row["student_number"];
+        }
+
+        public string student_number { get; set; }
+        public string grade_year { get; set; }
+        public string ref_student_id { get; set; }
+        public string class_id { get; set; }
+        public string class_name { get; set; }
+        public string seat_no { get; set; }
+        public string name { get; set; }
     }
 }
