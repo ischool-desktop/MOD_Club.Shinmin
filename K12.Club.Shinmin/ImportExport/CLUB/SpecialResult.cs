@@ -127,7 +127,7 @@ namespace K12.Club.Shinmin.CLUB
                                     case "座號": row.Add(field, sr.seat_no); break;
                                     case "姓名": row.Add(field, sr.name); break;
 
-                                    case "科目": row.Add(field, "聯課活動"); break;
+                                    case "科目": row.Add(field, "綜合活動"); break;
                                     case "科目級別": row.Add(field, 科目級別); break;
                                     case "學年度": row.Add(field, "" + Result.SchoolYear); break;
                                     case "學期": row.Add(field, "" + Result.Semester); break;
@@ -135,7 +135,7 @@ namespace K12.Club.Shinmin.CLUB
                                     case "必選修": row.Add(field, "必修"); break;
                                     case "分項類別": row.Add(field, "學業"); break;
                                     case "成績年級": row.Add(field, 成績年級); break;
-                                    case "校部訂": row.Add(field, "部訂"); break;
+                                    case "校部訂": row.Add(field, "校訂"); break;
                                     case "科目成績": row.Add(field, Result.ResultScore.HasValue ? Result.ResultScore.Value.ToString() : ""); break;
                                     case "原始成績": row.Add(field, Result.ResultScore.HasValue ? Result.ResultScore.Value.ToString() : ""); break;
                                     case "取得學分": row.Add(field, 取得學分); break;
