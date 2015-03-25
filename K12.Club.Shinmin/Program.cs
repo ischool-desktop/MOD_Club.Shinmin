@@ -18,7 +18,7 @@ namespace K12.Club.Shinmin
         [MainMethod()]
         static public void Main()
         {
-            ServerModule.AutoManaged("https://module.ischool.com.tw/module/138/Club_Shinmin/udm.xml");
+            ServerModule.AutoManaged("http://module.ischool.com.tw/module/138/Club_Shinmin/udm.xml");
 
             //FISCA.RTOut.WriteLine("註冊Gadget - 參加社團(學生)：" + WebPackage.RegisterGadget("Student", "fd56eafc-3601-40a0-82d9-808f72a8272b", "參加社團(學生)").Item2);
             //FISCA.RTOut.WriteLine("註冊Gadget - 社團(老師)：" + WebPackage.RegisterGadget("Teacher", "6080a7c0-60e7-443c-bad7-ecccb3a86bcf", "社團(老師)").Item2);
