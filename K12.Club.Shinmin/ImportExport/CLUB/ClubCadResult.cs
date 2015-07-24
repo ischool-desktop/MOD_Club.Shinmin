@@ -93,13 +93,11 @@ namespace K12.Club.Shinmin.CLUB
                 List<StudentRecord> StudentRecordList = Student.SelectByIDs(StudentIDList);
                 foreach (StudentRecord each in StudentRecordList)
                 {
-                    if (each.Status == StudentRecord.StudentStatus.一般 || each.Status == StudentRecord.StudentStatus.延修)
+                    if (!StudentDic.ContainsKey(each.ID))
                     {
-                        if (!StudentDic.ContainsKey(each.ID))
-                        {
-                            StudentDic.Add(each.ID, each);
-                        }
+                        StudentDic.Add(each.ID, each);
                     }
+
                 }
 
 
@@ -137,10 +135,10 @@ namespace K12.Club.Shinmin.CLUB
                                 case "學期": row.Add(field, "" + Result._Club.Semester); break;
                                 case "社團名稱": row.Add(field, "" + Result._Club.ClubName); break;
                                 case "代碼": row.Add(field, CLUBCode); break;
-                                case "班級": row.Add(field, string.IsNullOrEmpty(sr.RefClassID) ? "" : sr.Class.Name); break;
-                                case "座號": row.Add(field, sr.SeatNo.HasValue ? sr.SeatNo.Value.ToString() : ""); break;
-                                case "學號": row.Add(field, sr.StudentNumber); break;
-                                case "姓名": row.Add(field, sr.Name); break;
+                                case "班級": row.Add(field, sr != null ? (string.IsNullOrEmpty(sr.RefClassID) ? "" : sr.Class.Name) : ""); break;
+                                case "座號": row.Add(field, sr != null ? (sr.SeatNo.HasValue ? sr.SeatNo.Value.ToString() : "") : ""); break;
+                                case "學號": row.Add(field, sr != null ? sr.StudentNumber : ""); break;
+                                case "姓名": row.Add(field, sr != null ? sr.Name : ""); break;
                                 case "幹部職稱": row.Add(field, Result.CadreName); break;
                             }
                         }
@@ -171,12 +169,28 @@ namespace K12.Club.Shinmin.CLUB
             rsr2Code += GetCadNowName(rsr2.CadreName);
 
             //學生班級
-            rsr1Code += string.IsNullOrEmpty(rsr1._Student.RefClassID) ? "000000" : rsr1._Student.Class.Name.PadLeft(6, '0');
-            rsr2Code += string.IsNullOrEmpty(rsr2._Student.RefClassID) ? "000000" : rsr2._Student.Class.Name.PadLeft(6, '0');
+            if (rsr1._Student == null)
+            {
+                rsr1Code += "000000000";
+            }
+            else
+            {
+                rsr1Code += string.IsNullOrEmpty(rsr1._Student.RefClassID) ? "000000" : rsr1._Student.Class.Name.PadLeft(6, '0');
+                rsr1Code += rsr1._Student.SeatNo.HasValue ? rsr1._Student.SeatNo.Value.ToString().PadLeft(3, '0') : "000";
+            }
+
+            if (rsr2._Student == null)
+            {
+                rsr2Code += "000000000";
+            }
+            else
+            {
+                rsr2Code += string.IsNullOrEmpty(rsr2._Student.RefClassID) ? "000000" : rsr2._Student.Class.Name.PadLeft(6, '0');
+                rsr2Code += rsr2._Student.SeatNo.HasValue ? rsr2._Student.SeatNo.Value.ToString().PadLeft(3, '0') : "000";
+            }
 
             //學生座號
-            rsr1Code += rsr1._Student.SeatNo.HasValue ? rsr1._Student.SeatNo.Value.ToString().PadLeft(3, '0') : "000";
-            rsr2Code += rsr2._Student.SeatNo.HasValue ? rsr2._Student.SeatNo.Value.ToString().PadLeft(3, '0') : "000";
+
 
             return rsr1Code.CompareTo(rsr2Code);
         }
