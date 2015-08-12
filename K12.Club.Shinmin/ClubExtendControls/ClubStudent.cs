@@ -700,9 +700,9 @@ namespace K12.Club.Shinmin
         /// </summary>
         private string GetLogMessage(string StudentID)
         {
-            if (scMAG.StudentDic.ContainsKey(StudentID))
+            if (scMAG.StudentAllDic.ContainsKey(StudentID))
             {
-                StudentRecord sr = scMAG.StudentDic[StudentID];
+                StudentRecord sr = scMAG.StudentAllDic[StudentID];
                 return GetStudentString(sr);
             }
             else

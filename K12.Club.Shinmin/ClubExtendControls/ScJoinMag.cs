@@ -33,6 +33,8 @@ namespace K12.Club.Shinmin
 
         public Dictionary<string, StudentRecord> StudentDic = new Dictionary<string, StudentRecord>();
 
+        public Dictionary<string, StudentRecord> StudentAllDic = new Dictionary<string, StudentRecord>();
+
         public List<string> SCJoin_Lock = new List<string>();
 
         /// <summary>
@@ -94,6 +96,11 @@ namespace K12.Club.Shinmin
                     {
                         StudentDic.Add(each.ID, each);
                     }
+                }
+
+                if (!StudentAllDic.ContainsKey(each.ID))
+                {
+                    StudentAllDic.Add(each.ID, each);
                 }
             }
             //排序
